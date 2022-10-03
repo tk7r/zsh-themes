@@ -20,12 +20,13 @@ function check_git_prompt_info() {
 # information blocks
 AJAX_USER_HOST_INFO='%{$fg_bold[white]%}%n%{$reset_color%}@%{$fg_bold[red]%}%m%{$reset_color%}'
 AJAX_LOCATION_INFO='%{$fg[cyan]%}%~%{$reset_color%}'
-AJAX_GIT_INFO='%{$fg[yellow]%}$(git_prompt_short_sha)$(check_git_prompt_info)'
+AJAX_GIT_INFO='%{$fg[yellow]%}$(git_prompt_short_sha)$(check_git_prompt_info)%{$reset_color%}'
+AJAX_KUBE_PS1='$(kube_ps1)'
 
 # assemble lines
 AJAX_LINE_FINISHER=''
 #$FG[237]------------------------------------------------------------%{$reset_color%}'
-AJAX_LINE_INFO="${AJAX_USER_HOST_INFO} ${AJAX_LOCATION_INFO} ${AJAX_GIT_INFO}%{$reset_color%}"
+AJAX_LINE_INFO="${AJAX_USER_HOST_INFO} ${AJAX_LOCATION_INFO} ${AJAX_GIT_INFO} ${AJAX_KUBE_PS1}%{$reset_color%}"
 AJAX_LINE_PROMPT='%F{blue}[%f '
 
 AJAX_LINE_PREFIX='%{$fg_bold[white]%}[#] %{$reset_color%}'
@@ -50,3 +51,12 @@ ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[yellow]%} ✗"
 
 ZSH_THEME_GIT_PROMPT_SHA_BEFORE="%{$fg_bold[white]%}   ➤ %{$fg_bold[yellow]%}"
 ZSH_THEME_GIT_PROMPT_SHA_AFTER="%{$fg[white]%}|"
+
+#
+# KUBE PS1
+#
+KUBE_PS1_PREFIX='/K8s/'
+KUBE_PS1_SUFFIX=''
+KUBE_PS1_DIVIDER='/'
+KUBE_PS1_SYMBOL_ENABLE=false
+
